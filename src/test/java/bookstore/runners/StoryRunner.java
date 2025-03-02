@@ -1,7 +1,9 @@
 package bookstore.runners;
 
 import bookstore.hooks.ScenarioHooks;
+import bookstore.pages.BookstorePage;
 import bookstore.steps.LoginSteps;
+import bookstore.steps.ProfileSteps;
 import bookstore.steps.RegisterSteps;
 import org.jbehave.core.ConfigurableEmbedder;
 import org.jbehave.core.configuration.Configuration;
@@ -18,7 +20,7 @@ import java.util.List;
 
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 
-public class RegisterRunner extends ConfigurableEmbedder {
+public class StoryRunner extends ConfigurableEmbedder {
     public Embedder embedder;
 
     @Override
@@ -43,6 +45,6 @@ public class RegisterRunner extends ConfigurableEmbedder {
     }
 
     public InjectableStepsFactory stepsFactory(){
-        return new InstanceStepsFactory(configuration(), new ScenarioHooks(),new RegisterSteps(), new LoginSteps());
+        return new InstanceStepsFactory(configuration(), new ScenarioHooks(),new RegisterSteps(), new LoginSteps(), new ProfileSteps());
     }
 }
